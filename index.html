@@ -41,6 +41,12 @@
       [x-cloak] {
         display: none !important;
       }
+      input,
+      select,
+      textarea {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
       .step-dot {
         transition: all 0.3s ease;
       }
@@ -68,7 +74,7 @@
   }"
   >
 
-    <main class="max-w-3xl mx-auto px-4 pb-12">
+    <main class="max-w-3xl mx-auto px-4 py-12">
       <div class="flex items-center space-x-3 mb-4">
         <span
           class="text-xs font-bold tracking-widest uppercase text-gray-400"
@@ -85,10 +91,10 @@
       </div>
 
       <section x-show="step === 1" x-cloak x-transition>
-        <div class="flex items-start justify-between gap-4 mb-4">
+        <div class="flex items-start justify-between gap-4 mb-8">
           <div>
             <h1 class="text-3xl font-bold mb-2">Create your account</h1>
-            <p class="text-gray-500">
+            <p class="text-gray-500 text-sm">
               Set up your firm on Ahead Legal. You can add team members after your
               account is active.
             </p>
@@ -96,14 +102,14 @@
           <img
             src="https://cdn.prod.website-files.com/6581b9cfa36d3013e5fa7c73/6581b9cfa36d3013e5fa7cdf_ahaead%20legal%20logo.svg"
             alt="Ahead Legal Logo"
-            class="w-14 h-auto shrink-0"
+            class="w-16 h-auto shrink-0"
           />
         </div>
 
         <form
           autocomplete="off"
           data-1p-ignore
-          class="space-y-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100"
+          class="space-y-4 bg-white p-8 rounded-xl shadow-sm border border-gray-100"
         >
           <div>
             <label class="block text-sm font-semibold mb-2">Company name</label>
@@ -209,7 +215,7 @@
       </section>
 
       <section x-show="step === 2" x-cloak x-transition>
-        <div class="flex items-start justify-between gap-4 mb-5">
+        <div class="flex items-start justify-between gap-4 mb-8">
           <div>
             <h1 class="text-3xl font-bold mb-2">Check your inbox</h1>
             <p class="text-gray-500">
@@ -273,7 +279,7 @@
       </section>
 
       <section x-show="step === 3" x-cloak x-transition>
-        <div class="flex items-start justify-between gap-4 mb-5">
+        <div class="flex items-start justify-between gap-4 mb-8">
           <div>
             <h1 class="text-3xl font-bold mb-2">Choose your plan</h1>
             <p class="text-gray-500">
