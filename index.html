@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -50,24 +50,24 @@
     </style>
   </head>
   <body
-    class="bg-brand-light font-sans text-brand-navy antialiased"
-    x-data="{
-    step: 3,
-    billing: 'monthly',
-    plan: 'professional',
-    licenses: 10,
-    email: 'ivan@castillolaw.com',
-    get unitPrice() {
-        let base = this.plan === 'starter' ? 99 : this.plan === 'professional' ? 199 : 399;
-        if (this.billing === 'yearly') base = base * 0.8;
-        return base;
-    },
-    get totalPrice() {
-        return Math.round(this.unitPrice * this.licenses).toLocaleString();
-    }
-}"
-  >
-    <nav class="py-10 px-4 max-w-5xl mx-auto flex justify-center">
+          class="bg-brand-light font-sans text-brand-navy antialiased"
+          x-data="{
+      step: 3,
+      billing: 'monthly',
+      plan: 'professional',
+      licenses: 10,
+      email: 'ivan@castillolaw.com',
+      get unitPrice() {
+          let base = this.plan === 'starter' ? 99 : this.plan === 'professional' ? 199 : 399;
+          if (this.billing === 'yearly') base = base * 0.8;
+          return base;
+      },
+      get totalPrice() {
+          return Math.round(this.unitPrice * this.licenses).toLocaleString();
+      }
+  }"
+      >
+    <nav class="py-4 px-4 max-w-5xl mx-auto flex justify-center">
       <a href="#">
         <img
           src="https://cdn.prod.website-files.com/6581b9cfa36d3013e5fa7c73/6581b9cfa36d3013e5fa7cdf_ahaead%20legal%20logo.svg"
@@ -78,10 +78,10 @@
     </nav>
 
     <main class="max-w-3xl mx-auto px-4 pb-20">
-      <div class="flex items-center space-x-3 mb-8" x-show="step < 5">
+      <div class="flex items-center space-x-3 mb-4">
         <span
-          class="text-[10px] font-black tracking-widest uppercase text-gray-400"
-          x-text="`Step ${step} of 4`"
+          class="text-xs font-bold tracking-widest uppercase text-gray-400"
+          x-text="step < 5 ? `Step ${step} of 4` : 'Complete'"
         ></span>
         <div class="flex space-x-1.5">
           <template x-for="i in 4">
@@ -94,123 +94,191 @@
       </div>
 
       <section x-show="step === 1" x-cloak x-transition>
-        <h1 class="text-3xl font-black mb-2 tracking-tight">
-          Create your account
-        </h1>
-        <p class="text-gray-500 mb-8">
+        <h1 class="text-3xl font-bold mb-2">Create your account</h1>
+        <p class="text-gray-500 mb-4">
           Set up your firm on Ahead Legal. You can add team members after your
           account is active.
         </p>
 
         <form
           @submit.prevent="step = 2"
-          class="space-y-6 bg-white p-8 rounded-[32px] shadow-sm border border-gray-100"
+          class="space-y-6 bg-white p-4 rounded-xl shadow-sm border border-gray-100"
         >
           <div>
-            <label class="block text-sm font-bold mb-2">Company name</label>
+            <label class="block text-sm font-semibold mb-2">Company name</label>
             <input
               type="text"
               placeholder="e.g. Castillo & Asociados"
-              class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
+              class="w-full px-2 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
               required
             />
           </div>
+
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label class="block text-sm font-bold mb-2">Your full name</label>
+              <label class="block text-sm font-semibold mb-2"
+                >Your full name</label
+              >
               <input
                 type="text"
                 placeholder="Ivan Castillo"
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
                 required
               />
             </div>
             <div>
-              <label class="block text-sm font-bold mb-2"
+              <label class="block text-sm font-semibold mb-2"
                 >Job title
                 <span class="text-gray-400 font-normal">(optional)</span></label
               >
               <input
                 type="text"
                 placeholder="Managing Partner"
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
               />
             </div>
           </div>
+
           <div>
-            <label class="block text-sm font-bold mb-2">Work email</label>
+            <label class="block text-sm font-semibold mb-2">Work email</label>
             <input
               type="email"
               x-model="email"
-              class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
+              class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
               required
             />
           </div>
+
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label class="block text-sm font-bold mb-2">Password</label>
+              <label class="block text-sm font-semibold mb-2">Password</label>
               <input
                 type="password"
                 placeholder="........"
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
                 required
               />
             </div>
             <div>
-              <label class="block text-sm font-bold mb-2"
+              <label class="block text-sm font-semibold mb-2"
                 >Confirm password</label
               >
               <input
                 type="password"
                 placeholder="........"
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
                 required
               />
             </div>
           </div>
+
           <p class="text-xs text-gray-400">
             By creating an account you agree to our
             <a href="#" class="underline">Terms of Service</a> and
             <a href="#" class="underline">Privacy Policy</a>.
           </p>
+
           <button
             type="submit"
-            class="w-full bg-brand-green hover:bg-brand-darkGreen text-white font-bold py-4 rounded-xl transition shadow-md"
+            class="w-full bg-brand-green hover:bg-brand-darkGreen text-white font-bold py-4 rounded-lg transition duration-200 flex justify-center items-center group"
           >
-            Create account →
+            Create account
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
           </button>
         </form>
       </section>
 
-      <section x-show="step === 3" x-cloak x-transition>
-        <h1
-          class="text-3xl font-black mb-2 tracking-tight text-center md:text-left"
+      <section x-show="step === 2" x-cloak x-transition>
+        <h1 class="text-3xl font-bold mb-2">Check your inbox</h1>
+        <p class="text-gray-500 mb-8">
+          We've sent a confirmation link to your email address. Click it to
+          continue.
+        </p>
+
+        <div
+          class="bg-white p-10 rounded-xl shadow-sm border border-gray-100 text-center"
         >
-          Choose your plan
-        </h1>
-        <p class="text-gray-500 mb-8 text-center md:text-left">
-          Scale your firm with the plan that fits your current needs.
+          <div
+            class="w-16 h-16 bg-brand-gray rounded-full flex items-center justify-center mx-auto mb-6"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8 text-brand-green"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+          </div>
+          <p class="text-sm text-gray-500 mb-2">Confirmation sent to</p>
+          <p class="font-bold text-lg mb-6" x-text="email"></p>
+
+          <p class="text-sm text-gray-400 mb-8">
+            Didn't receive it? Check your spam folder, or
+            <a href="#" class="text-brand-orange font-medium hover:underline"
+              >resend the email</a
+            >.
+          </p>
+
+          <div class="pt-6 border-t border-gray-50">
+            <p class="text-xs text-gray-400 mb-6">
+              Once you confirm, you'll be taken directly to the plan selection
+              screen. You won't be able to log in until your subscription is
+              active.
+            </p>
+            <button
+              @click="step = 3"
+              class="text-brand-green font-bold text-sm hover:underline"
+            >
+              Simulate Email Confirmation Link Click →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section x-show="step === 3" x-cloak x-transition>
+        <h1 class="text-3xl font-bold mb-2">Choose your plan</h1>
+        <p class="text-gray-500 mb-8">
+          All plans include unlimited files, document generation, and email
+          notifications.
         </p>
 
         <div class="flex justify-center mb-10">
-          <div
-            class="bg-gray-100 p-1 rounded-2xl flex items-center shadow-inner"
-          >
+          <div class="bg-gray-100 p-1 rounded-xl flex items-center">
             <button
               @click="billing = 'monthly'"
-              :class="billing === 'monthly' ? 'bg-white shadow-md' : 'text-gray-500'"
-              class="px-8 py-2 rounded-xl text-sm font-bold transition"
+              :class="billing === 'monthly' ? 'bg-white shadow-sm' : ''"
+              class="px-6 py-2 rounded-lg text-sm font-bold transition"
             >
               Monthly
             </button>
             <button
               @click="billing = 'yearly'"
-              :class="billing === 'yearly' ? 'bg-white shadow-md' : 'text-gray-500'"
-              class="px-8 py-2 rounded-xl text-sm font-bold transition"
+              :class="billing === 'yearly' ? 'bg-white shadow-sm' : ''"
+              class="px-6 py-2 rounded-lg text-sm font-bold transition flex items-center"
             >
               Yearly
               <span
-                class="ml-2 text-brand-green text-[10px] bg-green-50 px-1.5 py-0.5 rounded"
+                class="ml-2 bg-brand-green text-white text-[10px] px-1.5 py-0.5 rounded-full"
                 >-20%</span
               >
             </button>
@@ -220,238 +288,228 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <div
             @click="plan = 'starter'"
-            :class="plan === 'starter' ? 'ring-2 ring-brand-navy shadow-lg border-transparent' : 'border-gray-200'"
-            class="bg-white p-6 rounded-[28px] border-2 cursor-pointer transition-all"
+            :class="plan === 'starter' ? 'ring-2 ring-brand-green border-transparent' : 'border-gray-200'"
+            class="bg-white p-8 rounded-xl border cursor-pointer hover:shadow-md transition"
           >
-            <h3 class="font-black text-lg mb-4">Starter</h3>
-            <div class="flex items-baseline mb-6">
-              <span class="text-xl font-bold">$</span>
+            <h3 class="font-bold text-lg mb-1">Starter</h3>
+            <div class="flex items-baseline mb-4">
+              <span class="text-2xl font-bold">$</span>
               <span
-                class="text-4xl font-black tracking-tighter"
+                class="text-4xl font-bold tracking-tight"
                 x-text="billing === 'monthly' ? '99' : '79'"
               ></span>
-              <span class="text-gray-400 font-bold text-xs ml-1">/mo</span>
+              <span class="text-gray-400 text-sm ml-1">/mo</span>
             </div>
-            <ul class="text-xs text-gray-500 space-y-2 font-medium">
-              <li class="flex items-center">
-                <svg
-                  class="w-3 h-3 mr-2 text-brand-green"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-                Up to 5 users
-              </li>
-              <li class="flex items-center">
-                <svg
-                  class="w-3 h-3 mr-2 text-brand-green"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-                1 branch
-              </li>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>Up to 5 users</li>
+              <li>1 branch</li>
             </ul>
           </div>
 
           <div
             @click="plan = 'professional'"
-            :class="plan === 'professional' ? 'ring-2 ring-brand-green shadow-lg border-transparent' : 'border-gray-200'"
-            class="bg-white p-6 rounded-[28px] border-2 cursor-pointer relative transition-all"
+            :class="plan === 'professional' ? 'ring-2 ring-brand-green border-transparent' : 'border-gray-200'"
+            class="bg-white p-8 rounded-xl border cursor-pointer relative hover:shadow-md transition"
           >
             <span
-              class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white border border-gray-100 text-brand-green text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-sm"
-              >Most popular</span
+              class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-100 text-brand-green text-[9px] font-black uppercase tracking-[0.15em] px-6 py-1.5 rounded-full border border-brand-green/20 shadow-sm whitespace-nowrap z-20"
             >
-            <h3 class="font-black text-lg mb-4">Professional</h3>
-            <div class="flex items-baseline mb-6">
-              <span class="text-xl font-bold">$</span>
+              Most popular
+            </span>
+            <h3 class="font-bold text-lg mb-1">Professional</h3>
+            <div class="flex items-baseline mb-4">
+              <span class="text-2xl font-bold">$</span>
               <span
-                class="text-4xl font-black tracking-tighter"
+                class="text-4xl font-bold tracking-tight"
                 x-text="billing === 'monthly' ? '199' : '159'"
               ></span>
-              <span class="text-gray-400 font-bold text-xs ml-1">/mo</span>
+              <span class="text-gray-400 text-sm ml-1">/mo</span>
             </div>
-            <ul class="text-xs text-gray-500 space-y-2 font-medium">
-              <li class="flex items-center">
-                <svg
-                  class="w-3 h-3 mr-2 text-brand-green"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-                Up to 20 users
-              </li>
-              <li class="flex items-center">
-                <svg
-                  class="w-3 h-3 mr-2 text-brand-green"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-                3 branches
-              </li>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>Up to 20 users</li>
+              <li>3 branches</li>
             </ul>
           </div>
 
           <div
             @click="plan = 'enterprise'"
-            :class="plan === 'enterprise' ? 'ring-2 ring-brand-navy shadow-lg border-transparent' : 'border-gray-200'"
-            class="bg-white p-6 rounded-[28px] border-2 cursor-pointer transition-all"
+            :class="plan === 'enterprise' ? 'ring-2 ring-brand-green border-transparent' : 'border-gray-200'"
+            class="bg-white p-8 rounded-xl border cursor-pointer hover:shadow-md transition"
           >
-            <h3 class="font-black text-lg mb-4">Enterprise</h3>
-            <div class="flex items-baseline mb-6">
-              <span class="text-xl font-bold">$</span>
+            <h3 class="font-bold text-lg mb-1">Enterprise</h3>
+            <div class="flex items-baseline mb-4">
+              <span class="text-2xl font-bold">$</span>
               <span
-                class="text-4xl font-black tracking-tighter"
+                class="text-4xl font-bold tracking-tight"
                 x-text="billing === 'monthly' ? '399' : '319'"
               ></span>
-              <span class="text-gray-400 font-bold text-xs ml-1">/mo</span>
+              <span class="text-gray-400 text-sm ml-1">/mo</span>
             </div>
-            <ul class="text-xs text-gray-500 space-y-2 font-medium">
-              <li class="flex items-center">
-                <svg
-                  class="w-3 h-3 mr-2 text-brand-green"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-                Unlimited users
-              </li>
-              <li class="flex items-center">
-                <svg
-                  class="w-3 h-3 mr-2 text-brand-green"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-                Unlimited branches
-              </li>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>Unlimited users</li>
+              <li>Unlimited branches</li>
             </ul>
           </div>
         </div>
 
-        <div
-          class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm mb-10 flex items-center justify-between"
-        >
-          <div>
-            <h3 class="font-black text-lg">User licenses</h3>
-            <p class="text-xs text-gray-400 font-medium">
-              Adjust your team size
-            </p>
-          </div>
-          <div class="flex items-center space-x-6">
-            <button
-              @click="if(licenses > 1) licenses--"
-              class="w-10 h-10 flex items-center justify-center rounded-xl border border-gray-200 hover:bg-gray-50 font-black text-xl active:bg-gray-100 transition-colors cursor-pointer text-brand-navy"
-            >
-              -
-            </button>
-            <div
-              class="text-3xl font-black w-10 text-center"
-              x-text="licenses"
-            ></div>
-            <button
-              @click="licenses++"
-              class="w-10 h-10 flex items-center justify-center rounded-xl border border-gray-200 hover:bg-gray-50 font-black text-xl active:bg-gray-100 transition-colors cursor-pointer text-brand-navy"
-            >
-              +
-            </button>
+        <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm mb-10 flex items-center justify-between">
+            <div>
+                <h3 class="font-black text-lg">User licenses</h3>
+                <p class="text-xs text-gray-400 font-medium">Adjust your team size</p>
+            </div>
+            <div class="flex items-center space-x-6">
+                <button
+                    @click="if(licenses > 1) licenses--"
+                    class="w-10 h-10 flex items-center justify-center rounded-xl border border-gray-200 hover:bg-gray-50 font-black text-xl active:bg-gray-100 transition-colors cursor-pointer text-brand-navy"
+                >
+                    -
+                </button>
+
+                <div class="text-3xl font-black w-10 text-center" x-text="licenses"></div>
+
+                <button
+                    @click="licenses++"
+                    class="w-10 h-10 flex items-center justify-center rounded-xl border border-gray-200 hover:bg-gray-50 font-black text-xl active:bg-gray-100 transition-colors cursor-pointer text-brand-navy"
+                >
+                    +
+                </button>
+            </div>
+        </div>
           </div>
         </div>
 
         <div
-          class="bg-white p-8 rounded-[32px] shadow-2xl border border-gray-50 flex flex-col md:flex-row items-center justify-between gap-6"
+          class="bg-brand-gray/50 p-6 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4"
         >
-          <div class="text-center md:text-left">
-            <div
-              class="text-[9px] uppercase font-black text-gray-400 mb-1 tracking-widest"
-            >
-              Your Selection
-            </div>
-            <div class="text-base font-bold text-brand-navy">
-              <span class="capitalize" x-text="plan"></span> •
-              <span x-text="licenses"></span> Licenses •
-              <span class="capitalize" x-text="billing"></span>
-            </div>
+          <div class="text-sm font-medium">
+            <span class="capitalize" x-text="plan"></span> •
+            <span x-text="licenses"></span> licenses •
+            <span class="capitalize" x-text="billing"></span>
           </div>
-
-          <div class="flex items-center space-x-8">
+          <div class="flex items-center space-x-6">
             <div class="text-right">
-              <div
-                class="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1"
-              >
-                Total Monthly
-              </div>
-              <div
-                class="text-4xl font-black tracking-tight"
-                x-text="`$${totalPrice}`"
-              ></div>
+              <span
+                class="block text-2xl font-bold"
+                x-text="`$${totalPrice}/mo`"
+              ></span>
             </div>
             <button
               @click="step = 4"
-              class="bg-brand-green hover:bg-brand-darkGreen text-white px-8 py-4 rounded-2xl font-bold shadow-lg transition-all active:scale-95 flex items-center whitespace-nowrap"
+              class="bg-brand-green hover:bg-brand-darkGreen text-white px-8 py-3 rounded-lg font-bold transition flex items-center"
             >
-              Continue to payment →
+              Continue to payment
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4 ml-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
             </button>
           </div>
         </div>
       </section>
 
-      <section
-        x-show="step === 4"
-        x-cloak
-        x-transition
-        class="text-center py-20"
-      >
+      <section x-show="step === 4" x-cloak x-transition>
         <div
-          class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-green mx-auto mb-6"
-        ></div>
-        <h2 class="text-xl font-black tracking-tight">
-          Redirecting to Stripe...
-        </h2>
+          class="bg-white p-12 rounded-xl shadow-sm border border-gray-100 text-center"
+        >
+          <div class="animate-pulse flex flex-col items-center">
+            <div
+              class="w-12 h-12 border-4 border-brand-green border-t-transparent rounded-full animate-spin mb-6"
+            ></div>
+            <h2 class="text-xl font-bold mb-2">Redirecting to Stripe</h2>
+            <p class="text-gray-500 mb-8">
+              Securely processing your payment details...
+            </p>
+            <div
+              class="w-full max-w-xs h-4 bg-gray-100 rounded-full overflow-hidden"
+            >
+              <div class="h-full bg-brand-green w-2/3"></div>
+            </div>
+          </div>
+          <button
+            @click="step = 5"
+            class="mt-12 text-sm font-medium text-gray-400 hover:text-brand-navy underline"
+          >
+            Simulate Successful Stripe Callback
+          </button>
+        </div>
+      </section>
+
+      <section x-show="step === 5" x-cloak x-transition>
+        <div class="bg-white p-10 rounded-xl shadow-sm border border-gray-100">
+          <div
+            class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8 text-green-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
+          <h1 class="text-3xl font-bold mb-2">You're all set</h1>
+          <p class="text-gray-500 mb-8">
+            Your Ahead Legal account is now active. A receipt has been sent to
+            <span class="font-semibold text-brand-navy" x-text="email"></span>.
+          </p>
+
+          <div class="space-y-6 mb-10">
+            <h3
+              class="text-xs font-bold uppercase tracking-widest text-gray-400"
+            >
+              Suggested next steps:
+            </h3>
+            <ul class="space-y-4">
+              <li class="flex items-center group cursor-pointer">
+                <div
+                  class="w-8 h-8 rounded-lg bg-brand-gray flex items-center justify-center mr-4 group-hover:bg-brand-green group-hover:text-white transition"
+                >
+                  1
+                </div>
+                <span class="font-medium">Set up your first branch</span>
+              </li>
+              <li class="flex items-center group cursor-pointer">
+                <div
+                  class="w-8 h-8 rounded-lg bg-brand-gray flex items-center justify-center mr-4 group-hover:bg-brand-green group-hover:text-white transition"
+                >
+                  2
+                </div>
+                <span class="font-medium">Invite your team members</span>
+              </li>
+              <li class="flex items-center group cursor-pointer">
+                <div
+                  class="w-8 h-8 rounded-lg bg-brand-gray flex items-center justify-center mr-4 group-hover:bg-brand-green group-hover:text-white transition"
+                >
+                  3
+                </div>
+                <span class="font-medium">Create your first file</span>
+              </li>
+            </ul>
+          </div>
+
+          <button
+            class="w-full bg-brand-green hover:bg-brand-darkGreen text-white font-bold py-4 rounded-lg transition duration-200 flex justify-center items-center"
+          >
+            Set up my account →
+          </button>
+        </div>
       </section>
     </main>
   </body>
