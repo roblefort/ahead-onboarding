@@ -52,10 +52,10 @@
   <body
           class="bg-brand-light font-sans text-brand-navy antialiased"
           x-data="{
-      step: 3,
+      step: 1,
       billing: 'monthly',
       plan: 'professional',
-      licenses: 10,
+      licenses: 2,
       email: 'ivan@castillolaw.com',
       get unitPrice() {
           let base = this.plan === 'starter' ? 99 : this.plan === 'professional' ? 199 : 399;
@@ -66,7 +66,8 @@
           return Math.round(this.unitPrice * this.licenses).toLocaleString();
       }
   }"
-      >
+  >
+
     <nav class="py-4 px-4 max-w-5xl mx-auto flex justify-center">
       <a href="#">
         <img
