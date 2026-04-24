@@ -12,21 +12,33 @@
       rel="stylesheet"
     />
 
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script
       defer
       src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
 
-    <style type="text/css">
-      @theme {
-        /* This is the Tailwind 4 way to define your design tokens */
-        --color-brand-green: #00843d;
-        --color-brand-green-hover: #006830;
-        --color-brand-navy: #2d2e32;
-        --color-brand-light: #fbfbfb;
-      }
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                green: "#00843D",
+                "green-hover": "#006830",
+                navy: "#2D2E32",
+                light: "#FBFBFB",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
 
+    <style>
       [x-cloak] {
         display: none !important;
       }
@@ -43,7 +55,6 @@
     get totalPrice() {
         let base = (this.plan === 'starter') ? 99 : (this.plan === 'professional') ? 199 : 399;
         if (this.billing === 'yearly') base = base * 0.8;
-        // The Math: Base Price * Licenses
         return Math.round(base * this.licenses).toLocaleString();
     }
 }"
@@ -79,7 +90,9 @@
         <h1 class="text-3xl font-black mb-2 tracking-tight">
           Create your account
         </h1>
-        <p class="text-gray-500 mb-8">Set up your firm on Ahead Legal.</p>
+        <p class="text-gray-500 mb-8">
+          Set up your firm on Ahead Legal. You can add team members later.
+        </p>
 
         <form
           @submit.prevent="step = 2"
@@ -110,6 +123,7 @@
                 <input
                   type="email"
                   x-model="email"
+                  placeholder="name@company.com"
                   class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
                   required
                 />
@@ -118,7 +132,7 @@
           </div>
           <button
             type="submit"
-            class="w-full bg-brand-green hover:bg-brand-green-hover text-white font-bold py-4 rounded-xl transition-all cursor-pointer"
+            class="w-full bg-brand-green hover:bg-brand-green-hover text-white font-bold py-4 rounded-xl transition-all shadow-md active:scale-[0.98]"
           >
             Create account →
           </button>
@@ -148,16 +162,18 @@
             ></path>
           </svg>
         </div>
-        <h2 class="text-3xl font-black mb-4">Check your inbox</h2>
-        <p class="text-gray-500 mb-10">
-          We've sent a link to
+        <h2 class="text-3xl font-black mb-4 tracking-tight">
+          Check your inbox
+        </h2>
+        <p class="text-gray-500 mb-10 max-w-sm mx-auto">
+          We've sent a confirmation link to
           <span class="font-bold text-brand-navy" x-text="email"></span>.
         </p>
         <button
           @click="step = 3"
-          class="bg-brand-green text-white font-bold py-3 px-8 rounded-xl cursor-pointer"
+          class="bg-brand-green text-white font-bold py-3 px-8 rounded-xl shadow-md"
         >
-          Simulate Verification →
+          Simulate Email Verification →
         </button>
       </section>
 
@@ -171,23 +187,23 @@
 
         <div class="flex justify-center mb-12">
           <div
-            class="bg-gray-100 p-1 rounded-2xl flex items-center shadow-inner"
+            class="bg-gray-100 p-1.5 rounded-2xl flex items-center shadow-inner"
           >
             <button
               @click="billing = 'monthly'"
               :class="billing === 'monthly' ? 'bg-white shadow-md' : 'text-gray-500'"
-              class="px-10 py-3 rounded-xl text-sm font-bold transition-all cursor-pointer"
+              class="px-10 py-3 rounded-xl text-sm font-bold transition-all"
             >
               Monthly
             </button>
             <button
               @click="billing = 'yearly'"
               :class="billing === 'yearly' ? 'bg-white shadow-md' : 'text-gray-500'"
-              class="px-10 py-3 rounded-xl text-sm font-bold transition-all cursor-pointer"
+              class="px-10 py-3 rounded-xl text-sm font-bold transition-all"
             >
               Yearly
               <span
-                class="ml-2 bg-green-50 text-brand-green text-[10px] px-2 py-0.5 rounded-md"
+                class="ml-2 bg-green-100 text-brand-green text-[10px] px-2 py-0.5 rounded-md"
                 >-20%</span
               >
             </button>
@@ -258,7 +274,7 @@
           <div class="flex items-center space-x-6">
             <button
               @click="if(licenses > 1) licenses--"
-              class="w-12 h-12 flex items-center justify-center rounded-xl border-2 border-gray-100 hover:bg-gray-50 font-black text-2xl cursor-pointer"
+              class="w-12 h-12 flex items-center justify-center rounded-xl border-2 border-gray-100 hover:bg-gray-50 font-black text-2xl active:bg-gray-100 transition-colors"
             >
               -
             </button>
@@ -268,7 +284,7 @@
             ></div>
             <button
               @click="licenses++"
-              class="w-12 h-12 flex items-center justify-center rounded-xl border-2 border-gray-100 hover:bg-gray-50 font-black text-2xl cursor-pointer"
+              class="w-12 h-12 flex items-center justify-center rounded-xl border-2 border-gray-100 hover:bg-gray-50 font-black text-2xl active:bg-gray-100 transition-colors"
             >
               +
             </button>
@@ -279,7 +295,9 @@
           class="mt-12 bg-white p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl border border-gray-50"
         >
           <div class="text-center md:text-left">
-            <div class="text-[10px] uppercase font-black text-gray-400 mb-1">
+            <div
+              class="text-[10px] uppercase font-black text-gray-400 mb-1 tracking-widest"
+            >
               Total Order
             </div>
             <div class="text-lg font-bold">
@@ -289,7 +307,9 @@
           </div>
           <div class="flex items-center space-x-10">
             <div class="text-right">
-              <div class="text-[10px] font-black text-gray-400 uppercase">
+              <div
+                class="text-[10px] font-black text-gray-400 uppercase tracking-widest"
+              >
                 Total Monthly
               </div>
               <div
@@ -299,7 +319,7 @@
             </div>
             <button
               @click="step = 4"
-              class="bg-brand-green hover:bg-brand-green-hover text-white px-10 py-4 rounded-xl font-bold shadow-lg transition-all cursor-pointer"
+              class="bg-brand-green hover:bg-brand-green-hover text-white px-10 py-4 rounded-xl font-bold shadow-lg transition-all active:scale-95"
             >
               Continue to payment →
             </button>
@@ -316,7 +336,10 @@
         <div
           class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-green mx-auto mb-6"
         ></div>
-        <h2 class="text-xl font-black">Redirecting to Stripe...</h2>
+        <h2 class="text-xl font-black tracking-tight">
+          Redirecting to Stripe...
+        </h2>
+        <p class="text-gray-400 text-sm mt-2">Securing your session.</p>
       </section>
     </main>
   </body>
