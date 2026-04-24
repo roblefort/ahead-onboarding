@@ -75,7 +75,7 @@
   >
 
     <main class="max-w-3xl mx-auto px-4 py-12">
-      <div class="flex items-center space-x-3 mb-4">
+      <div class="flex items-center space-x-3 mb-8">
         <span
           class="text-xs font-bold tracking-widest uppercase text-gray-400"
           x-text="step < 5 ? `Step ${step} of 4` : 'Complete'"
@@ -83,7 +83,7 @@
         <div class="flex space-x-1.5">
           <template x-for="i in 4">
             <div
-              class="w-2 h-2 rounded-full bg-gray-200 step-dot"
+              class="w-2 h-2 rounded-full bg-gray-300 step-dot"
               :class="step >= i ? 'active-dot' : ''"
             ></div>
           </template>
@@ -264,8 +264,7 @@
           <div class="pt-6 border-t border-gray-50">
             <p class="text-xs text-gray-400 mb-4">
               Once you confirm, you'll be taken directly to the plan selection
-              screen. You won't be able to log in until your subscription is
-              active.
+              screen. You can log in once your subscription is active.
             </p>
             <button
               type="button"
@@ -294,7 +293,7 @@
           />
         </div>
 
-        <div class="flex justify-center mb-8">
+        <div class="flex justify-center mb-10">
           <div class="bg-gray-100 p-1 rounded-xl flex items-center">
             <button
               @click="billing = 'monthly'"
