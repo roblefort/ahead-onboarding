@@ -401,8 +401,9 @@
             <div class="text-right">
               <span
                 class="block text-2xl font-bold"
-                x-text="`$${totalPrice} USD/mo`"
+                x-text="`$${totalPrice}`"
               ></span>
+              <span class="text-gray-400 text-sm ml-1"> USD/mo</span>
             </div>
             <button
               @click="step = 4"
