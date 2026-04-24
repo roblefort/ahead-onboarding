@@ -13,25 +13,19 @@
     />
 
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-
     <script
       defer
       src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
 
-    <style type="text/css">
-      @import "tailwindcss";
-
+    <style type="text/tailwindcss">
       @theme {
-        /* Brand Colors */
+        /* Brand Colors matched to your screenshots */
         --color-brand-green: #00843d;
-        --color-brand-dark-green: #006b31;
-        --color-brand-orange: #c36b4d;
+        --color-brand-green-light: #e6f3ec; /* Light green for the pill badge */
         --color-brand-navy: #2d2e32;
         --color-brand-gray: #f3f4f6;
         --color-brand-light: #fbfbfb;
-
-        /* Typography */
         --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
       }
 
@@ -39,7 +33,6 @@
         display: none !important;
       }
 
-      /* Custom Stepper Hide Arrows */
       input::-webkit-outer-spin-button,
       input::-webkit-inner-spin-button {
         -webkit-appearance: none;
@@ -63,14 +56,12 @@
     }
 }"
   >
-    <nav class="py-12 px-6 max-w-5xl mx-auto flex justify-center">
-      <a href="#">
-        <img
-          src="https://cdn.prod.website-files.com/6581b9cfa36d3013e5fa7c73/6581b9cfa36d3013e5fa7cdf_ahaead%20legal%20logo.svg"
-          alt="Ahead Legal Logo"
-          class="w-20 h-auto"
-        />
-      </a>
+    <nav class="pt-16 pb-8 px-6 flex justify-center">
+      <img
+        src="https://cdn.prod.website-files.com/6581b9cfa36d3013e5fa7c73/6581b9cfa36d3013e5fa7cdf_ahaead%20legal%20logo.svg"
+        alt="Ahead Legal Logo"
+        class="w-32 h-auto"
+      />
     </nav>
 
     <main class="max-w-3xl mx-auto px-6 pb-20">
@@ -79,11 +70,11 @@
           class="text-[10px] font-bold tracking-widest uppercase text-gray-400"
           x-text="step < 5 ? `Step ${step} of 4` : 'Complete'"
         ></span>
-        <div class="flex space-x-1.5">
+        <div class="flex space-x-2">
           <template x-for="i in 4">
             <div
-              class="w-1.5 h-1.5 rounded-full transition-colors duration-300"
-              :class="step >= i ? 'bg-brand-navy' : 'bg-gray-200'"
+              class="w-2 h-2 rounded-full transition-all duration-300"
+              :class="step >= i ? 'bg-brand-green' : 'bg-gray-200'"
             ></div>
           </template>
         </div>
@@ -98,10 +89,10 @@
 
         <form
           @submit.prevent="step = 2"
-          class="space-y-6 bg-white p-8 rounded-xl shadow-sm border border-gray-100"
+          class="space-y-6 bg-white p-10 rounded-2xl shadow-sm border border-gray-100"
         >
           <div>
-            <label class="block text-sm font-semibold mb-2">Company name</label>
+            <label class="block text-sm font-bold mb-2">Company name</label>
             <input
               type="text"
               placeholder="e.g. Castillo & Asociados"
@@ -111,9 +102,7 @@
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label class="block text-sm font-semibold mb-2"
-                >Your full name</label
-              >
+              <label class="block text-sm font-bold mb-2">Your full name</label>
               <input
                 type="text"
                 placeholder="Ivan Castillo"
@@ -122,7 +111,7 @@
               />
             </div>
             <div>
-              <label class="block text-sm font-semibold mb-2"
+              <label class="block text-sm font-bold mb-2"
                 >Job title
                 <span class="text-gray-400 font-normal">(optional)</span></label
               >
@@ -134,7 +123,7 @@
             </div>
           </div>
           <div>
-            <label class="block text-sm font-semibold mb-2">Work email</label>
+            <label class="block text-sm font-bold mb-2">Work email</label>
             <input
               type="email"
               x-model="email"
@@ -142,69 +131,47 @@
               required
             />
           </div>
-          <button
-            type="submit"
-            class="w-full bg-brand-navy hover:bg-black text-white font-bold py-4 rounded-lg transition flex justify-center items-center group"
-          >
-            Next step
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-bold mb-2">Password</label>
+              <input
+                type="password"
+                placeholder="........"
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
+                required
               />
-            </svg>
-          </button>
-        </form>
-      </section>
-
-      <section x-show="step === 2" x-cloak x-transition>
-        <h1 class="text-3xl font-bold mb-2">Check your inbox</h1>
-        <p class="text-gray-500 mb-8">
-          Click the link in the email we sent to
-          <span class="font-semibold text-brand-navy" x-text="email"></span>.
-        </p>
-        <div
-          class="bg-white p-10 rounded-xl shadow-sm border border-gray-100 text-center"
-        >
-          <div
-            class="w-16 h-16 bg-brand-gray rounded-full flex items-center justify-center mx-auto mb-6"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8 text-brand-green"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            </div>
+            <div>
+              <label class="block text-sm font-bold mb-2"
+                >Confirm password</label
+              >
+              <input
+                type="password"
+                placeholder="........"
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
+                required
               />
-            </svg>
+            </div>
+          </div>
+          <div class="text-xs text-gray-400">
+            By creating an account you agree to our
+            <a href="#" class="underline">Terms of Service</a> and
+            <a href="#" class="underline">Privacy Policy</a>.
           </div>
           <button
-            @click="step = 3"
-            class="text-brand-green font-bold text-sm hover:underline"
+            type="submit"
+            class="w-full bg-brand-navy hover:bg-black text-white font-bold py-4 rounded-xl transition flex justify-center items-center group"
           >
-            Simulate Confirmation Link Click →
+            Create account →
           </button>
-        </div>
+        </form>
       </section>
 
       <section x-show="step === 3" x-cloak x-transition>
         <h1 class="text-3xl font-bold mb-2">Choose your plan</h1>
         <p class="text-gray-500 mb-8">
-          Select the tier that fits your firm's needs.
+          All plans include unlimited files, document generation, and email
+          notifications.
         </p>
 
         <div class="flex justify-center mb-10">
@@ -230,7 +197,7 @@
           <div
             @click="plan = 'starter'"
             :class="plan === 'starter' ? 'ring-2 ring-brand-green border-transparent' : 'border-gray-200'"
-            class="bg-white p-6 rounded-xl border cursor-pointer transition"
+            class="bg-white p-6 rounded-2xl border cursor-pointer transition"
           >
             <h3 class="font-bold mb-1">Starter</h3>
             <div class="flex items-baseline mb-4">
@@ -239,16 +206,21 @@
                 class="text-4xl font-bold tracking-tight"
                 x-text="billing === 'monthly' ? '99' : '79'"
               ></span>
+              <span class="text-gray-400 text-sm ml-1">/mo</span>
+            </div>
+            <div class="text-sm text-gray-500 space-y-1">
+              <p>Up to 5 users</p>
+              <p>1 branch</p>
             </div>
           </div>
 
           <div
             @click="plan = 'professional'"
             :class="plan === 'professional' ? 'ring-2 ring-brand-green border-transparent' : 'border-gray-200'"
-            class="bg-white p-6 rounded-xl border cursor-pointer relative transition"
+            class="bg-white p-6 rounded-2xl border cursor-pointer relative transition"
           >
             <span
-              class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-brand-green text-[9px] font-black uppercase tracking-[0.15em] px-6 py-1.5 rounded-full border border-brand-green/20 shadow-sm whitespace-nowrap z-20"
+              class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-green-light text-brand-green text-[10px] font-black uppercase tracking-wider px-4 py-1.5 rounded-full shadow-sm whitespace-nowrap z-20"
             >
               Most popular
             </span>
@@ -259,13 +231,18 @@
                 class="text-4xl font-bold tracking-tight"
                 x-text="billing === 'monthly' ? '199' : '159'"
               ></span>
+              <span class="text-gray-400 text-sm ml-1">/mo</span>
+            </div>
+            <div class="text-sm text-gray-500 space-y-1">
+              <p>Up to 20 users</p>
+              <p>3 branches</p>
             </div>
           </div>
 
           <div
             @click="plan = 'enterprise'"
             :class="plan === 'enterprise' ? 'ring-2 ring-brand-green border-transparent' : 'border-gray-200'"
-            class="bg-white p-6 rounded-xl border cursor-pointer transition"
+            class="bg-white p-6 rounded-2xl border cursor-pointer transition"
           >
             <h3 class="font-bold mb-1">Enterprise</h3>
             <div class="flex items-baseline mb-4">
@@ -274,152 +251,93 @@
                 class="text-4xl font-bold tracking-tight"
                 x-text="billing === 'monthly' ? '399' : '319'"
               ></span>
+              <span class="text-gray-400 text-sm ml-1">/mo</span>
+            </div>
+            <div class="text-sm text-gray-500 space-y-1">
+              <p>Unlimited users</p>
+              <p>Unlimited branches</p>
             </div>
           </div>
         </div>
 
         <div
-          class="mt-8 flex flex-col md:flex-row items-center justify-between bg-white p-6 rounded-xl border border-gray-100 shadow-sm"
+          class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between"
         >
-          <div class="mb-4 md:mb-0">
-            <h3 class="text-sm font-bold text-brand-navy">
-              Number of user licenses
-            </h3>
+          <div>
+            <h3 class="font-bold text-brand-navy">Number of user licenses</h3>
             <p
-              class="text-xs text-gray-500"
-              x-text="isUnlimited ? 'Unlimited licenses included' : 'Adjust your team size'"
+              class="text-xs text-gray-400"
+              x-text="isUnlimited ? 'Unlimited included' : 'Adjust your team size'"
             ></p>
           </div>
-          <div
-            class="flex items-center bg-brand-gray rounded-lg p-1"
-            :class="isUnlimited ? 'opacity-50 cursor-not-allowed' : ''"
-          >
+          <div class="flex items-center bg-brand-gray rounded-xl p-1">
             <button
               @click="if(licenses > 1) licenses--"
               :disabled="isUnlimited"
-              class="w-10 h-10 flex items-center justify-center rounded-md bg-white shadow-sm hover:bg-gray-50 disabled:hover:bg-white transition text-brand-navy font-bold"
+              class="w-10 h-10 flex items-center justify-center rounded-lg bg-white shadow-sm hover:bg-gray-50 disabled:opacity-50 transition"
             >
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M20 12H4"
-                ></path>
-              </svg>
+              -
             </button>
-            <div class="w-24 text-center">
-              <template x-if="!isUnlimited">
-                <input
-                  type="number"
-                  x-model.number="licenses"
-                  class="w-full text-center bg-transparent border-none focus:ring-0 font-bold text-lg text-brand-navy"
-                />
-              </template>
-              <template x-if="isUnlimited">
-                <span class="font-bold text-lg text-brand-navy">Unlimited</span>
-              </template>
-            </div>
+            <div
+              class="w-16 text-center font-bold"
+              x-text="isUnlimited ? '∞' : licenses"
+            ></div>
             <button
               @click="licenses++"
               :disabled="isUnlimited"
-              class="w-10 h-10 flex items-center justify-center rounded-md bg-white shadow-sm hover:bg-gray-50 disabled:hover:bg-white transition text-brand-navy font-bold"
+              class="w-10 h-10 flex items-center justify-center rounded-lg bg-white shadow-sm hover:bg-gray-50 disabled:opacity-50 transition"
             >
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 4v16m8-8H4"
-                ></path>
-              </svg>
+              +
             </button>
           </div>
         </div>
 
         <div
-          class="mt-10 bg-brand-gray/50 p-6 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4"
+          class="mt-10 bg-brand-gray/40 p-6 rounded-2xl flex items-center justify-between"
         >
           <div class="text-sm font-medium">
             <span class="capitalize" x-text="plan"></span> •
-            <span
-              x-text="isUnlimited ? 'Unlimited licenses' : licenses + ' licenses'"
-            ></span>
-            •
-            <span class="capitalize" x-text="billing"></span>
+            <span x-text="isUnlimited ? 'Unlimited' : licenses"></span> licenses
+            • <span class="capitalize" x-text="billing"></span>
           </div>
           <div class="flex items-center space-x-6">
             <span
-              class="text-2xl font-bold"
+              class="text-2xl font-black"
               x-text="`$${totalPrice}/mo`"
             ></span>
             <button
               @click="step = 4"
-              class="bg-brand-navy hover:bg-black text-white px-8 py-3 rounded-lg font-bold transition"
+              class="bg-brand-navy hover:bg-black text-white px-8 py-3 rounded-xl font-bold transition"
             >
-              Continue
+              Continue to payment →
             </button>
           </div>
         </div>
       </section>
 
-      <section x-show="step === 4" x-cloak x-transition>
-        <div class="bg-white p-12 rounded-xl border text-center">
-          <div
-            class="w-12 h-12 border-4 border-brand-green border-t-transparent rounded-full animate-spin mx-auto mb-6"
-          ></div>
-          <h2 class="text-xl font-bold mb-2 text-brand-navy">
-            Redirecting to Stripe
-          </h2>
-          <button
-            @click="step = 5"
-            class="mt-8 text-sm text-gray-400 underline"
-          >
-            Simulate Payment Success
-          </button>
-        </div>
+      <section
+        x-show="step === 2"
+        x-cloak
+        class="text-center bg-white p-12 rounded-2xl border"
+      >
+        <h2 class="text-2xl font-bold mb-4">Check your inbox</h2>
+        <p class="mb-8">
+          Confirmation link sent to <strong x-text="email"></strong>.
+        </p>
+        <button @click="step = 3" class="text-brand-green font-bold">
+          Simulate Confirmation →
+        </button>
       </section>
 
-      <section x-show="step === 5" x-cloak x-transition>
-        <div class="bg-white p-10 rounded-xl shadow-sm border border-gray-100">
-          <div
-            class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8 text-green-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-          </div>
-          <h1 class="text-3xl font-bold mb-2">Account active</h1>
-          <p class="text-gray-500 mb-8">
-            Welcome to Ahead Legal. You can now start managing your expeditions.
-          </p>
-          <button
-            class="w-full bg-brand-navy py-4 rounded-lg text-white font-bold hover:bg-black transition"
-          >
-            Go to Dashboard →
-          </button>
-        </div>
+      <section
+        x-show="step === 4"
+        x-cloak
+        class="text-center p-12 bg-white rounded-2xl border"
+      >
+        <div
+          class="animate-spin h-8 w-8 border-4 border-brand-green border-t-transparent rounded-full mx-auto mb-4"
+        ></div>
+        <p>Redirecting to Stripe...</p>
       </section>
     </main>
   </body>
