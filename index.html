@@ -35,7 +35,7 @@
     </style>
   </head>
   <body
-          class="bg-brand-light font-sans text-brand-navy antialiased"
+          class="tw:bg-brand-light tw:font-sans tw:text-brand-navy tw:antialiased"
           x-data="{
       step: 1,
       billing: 'monthly',
@@ -53,16 +53,16 @@
   }"
   >
 
-    <main class="max-w-3xl mx-auto px-4 py-12">
-      <div class="flex items-center space-x-3 mb-8">
+    <main class="tw:max-w-3xl tw:mx-auto tw:px-4 tw:py-12">
+      <div class="tw:flex tw:items-center tw:space-x-3 tw:mb-8">
         <span
-          class="text-xs font-bold tracking-widest uppercase text-gray-400"
+          class="tw:text-xs tw:font-bold tw:tracking-widest tw:uppercase tw:text-gray-400"
           x-text="step < 5 ? `Step ${step} of 4` : 'Complete'"
         ></span>
-        <div class="flex space-x-1.5">
+        <div class="tw:flex tw:space-x-1.5">
           <template x-for="i in 4">
             <div
-              class="w-2 h-2 rounded-full bg-gray-300 step-dot"
+              class="tw:w-2 tw:h-2 tw:rounded-full tw:bg-gray-300 step-dot"
               :class="step >= i ? 'active-dot' : ''"
             ></div>
           </template>
@@ -70,10 +70,10 @@
       </div>
 
       <section x-show="step === 1" x-cloak x-transition>
-        <div class="flex items-start justify-between gap-4 mb-10">
+        <div class="tw:flex tw:items-start tw:justify-between tw:gap-4 tw:mb-10">
           <div>
-            <h1 class="text-3xl font-bold mb-2">Create your account</h1>
-            <p class="text-gray-500 text-sm">
+            <h1 class="tw:text-3xl tw:font-bold tw:mb-2">Create your account</h1>
+            <p class="tw:text-gray-500 tw:text-sm">
               Set up your firm on Ahead Legal. You can add team members after your
               account is active.
             </p>
@@ -81,75 +81,75 @@
           <img
             src="https://cdn.prod.website-files.com/6581b9cfa36d3013e5fa7c73/6581b9cfa36d3013e5fa7cdf_ahaead%20legal%20logo.svg"
             alt="Ahead Legal Logo"
-            class="w-16 h-auto shrink-0"
+            class="tw:w-16 tw:h-auto tw:shrink-0"
           />
         </div>
 
         <form
           autocomplete="off"
           data-1p-ignore
-          class="space-y-4 bg-white p-8 rounded-xl shadow-sm border border-gray-100"
+          class="tw:space-y-4 tw:bg-white tw:p-8 tw:rounded-xl tw:shadow-sm tw:border tw:border-gray-100"
         >
           <div>
-            <label class="block text-sm font-semibold mb-2">Company name</label>
+            <label class="tw:block tw:text-sm tw:font-semibold tw:mb-2">Company name</label>
             <input
               type="text"
               placeholder="e.g. Castillo & Asociados"
-              class="w-full text-sm px-2 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
+              class="tw:w-full tw:text-sm tw:px-2 tw:py-2 tw:rounded-lg tw:border tw:border-gray-200 tw:focus:ring-2 tw:focus:ring-brand-green tw:focus:outline-none"
               required
             />
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="tw:grid tw:grid-cols-1 tw:md:grid-cols-2 tw:gap-4">
             <div>
-              <label class="block text-sm font-semibold mb-2"
+              <label class="tw:block tw:text-sm tw:font-semibold tw:mb-2"
                 >Your full name</label
               >
               <input
                 type="text"
                 placeholder="Ivan Castillo"
-                class="w-full text-sm px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
+                class="tw:w-full tw:text-sm tw:px-4 tw:py-3 tw:rounded-lg tw:border tw:border-gray-200 tw:focus:ring-2 tw:focus:ring-brand-green tw:focus:outline-none"
                 required
               />
             </div>
             <div>
-              <label class="block text-sm font-semibold mb-2"
+              <label class="tw:block tw:text-sm tw:font-semibold tw:mb-2"
                 >Job title
-                <span class="text-gray-400 font-normal">(optional)</span></label
+                <span class="tw:text-gray-400 tw:font-normal">(optional)</span></label
               >
               <input
                 type="text"
                 placeholder="Managing Partner"
-                class="w-full text-sm px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
+                class="tw:w-full tw:text-sm tw:px-4 tw:py-3 tw:rounded-lg tw:border tw:border-gray-200 tw:focus:ring-2 tw:focus:ring-brand-green tw:focus:outline-none"
               />
             </div>
           </div>
 
           <div>
-            <label class="block text-sm font-semibold mb-2">Work email</label>
+            <label class="tw:block tw:text-sm tw:font-semibold tw:mb-2">Work email</label>
             <input
               type="email"
               x-model="email"
               autocomplete="email"
-              class="w-full text-sm px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
+              class="tw:w-full tw:text-sm tw:px-4 tw:py-3 tw:rounded-lg tw:border tw:border-gray-200 tw:focus:ring-2 tw:focus:ring-brand-green tw:focus:outline-none"
               required
             />
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="tw:grid tw:grid-cols-1 tw:md:grid-cols-2 tw:gap-4">
             <div>
-              <label class="block text-sm font-semibold mb-2">Password</label>
+              <label class="tw:block tw:text-sm tw:font-semibold tw:mb-2">Password</label>
               <input
                 type="password"
                 placeholder="........"
                 autocomplete="new-password"
                 data-1p-ignore
-                class="w-full text-sm px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
+                class="tw:w-full tw:text-sm tw:px-4 tw:py-3 tw:rounded-lg tw:border tw:border-gray-200 tw:focus:ring-2 tw:focus:ring-brand-green tw:focus:outline-none"
                 required
               />
             </div>
             <div>
-              <label class="block text-sm font-semibold mb-2"
+              <label class="tw:block tw:text-sm tw:font-semibold tw:mb-2"
                 >Confirm password</label
               >
               <input
@@ -157,27 +157,27 @@
                 placeholder="........"
                 autocomplete="new-password"
                 data-1p-ignore
-                class="w-full text-sm px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-green focus:outline-none"
+                class="tw:w-full tw:text-sm tw:px-4 tw:py-3 tw:rounded-lg tw:border tw:border-gray-200 tw:focus:ring-2 tw:focus:ring-brand-green tw:focus:outline-none"
                 required
               />
             </div>
           </div>
 
-          <p class="text-xs text-gray-400">
+          <p class="tw:text-xs tw:text-gray-400">
             By creating an account you agree to our
-            <a href="#" class="underline">Terms of Service</a> and
-            <a href="#" class="underline">Privacy Policy</a>.
+            <a href="#" class="tw:underline">Terms of Service</a> and
+            <a href="#" class="tw:underline">Privacy Policy</a>.
           </p>
 
           <button
             type="button"
             @click="step = 2"
-            class="w-full bg-brand-green hover:bg-brand-dark-green text-white font-bold py-3 rounded-lg transition duration-200 flex justify-center items-center group"
+            class="tw:w-full tw:bg-brand-green tw:hover:bg-brand-dark-green tw:text-white tw:font-bold tw:py-3 tw:rounded-lg tw:transition tw:duration-200 tw:flex tw:justify-center tw:items-center tw:group"
           >
             Create account
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform"
+              class="tw:h-5 tw:w-5 tw:ml-2 tw:group-hover:translate-x-1 tw:transition-transform"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -194,10 +194,10 @@
       </section>
 
       <section x-show="step === 2" x-cloak x-transition>
-        <div class="flex items-start justify-between gap-4 mb-10">
+        <div class="tw:flex tw:items-start tw:justify-between tw:gap-4 tw:mb-10">
           <div>
-            <h1 class="text-3xl font-bold mb-2">Check your inbox</h1>
-            <p class="text-gray-500">
+            <h1 class="tw:text-3xl tw:font-bold tw:mb-2">Check your inbox</h1>
+            <p class="tw:text-gray-500">
               We've sent a confirmation link to your email address. Click it to
               continue.
             </p>
@@ -205,19 +205,19 @@
           <img
             src="https://cdn.prod.website-files.com/6581b9cfa36d3013e5fa7c73/6581b9cfa36d3013e5fa7cdf_ahaead%20legal%20logo.svg"
             alt="Ahead Legal Logo"
-            class="w-14 h-auto shrink-0"
+            class="tw:w-14 tw:h-auto tw:shrink-0"
           />
         </div>
 
         <div
-          class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center"
+          class="tw:bg-white tw:p-6 tw:rounded-xl tw:shadow-sm tw:border tw:border-gray-100 tw:text-center"
         >
           <div
-              class="w-16 h-16 bg-brand-gray rounded-full flex items-center justify-center mx-auto mb-4"
+              class="tw:w-16 tw:h-16 tw:bg-brand-gray tw:rounded-full tw:flex tw:items-center tw:justify-center tw:mx-auto tw:mb-4"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8 text-brand-green"
+              class="tw:h-8 tw:w-8 tw:text-brand-green"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -230,25 +230,25 @@
               />
             </svg>
           </div>
-          <p class="text-sm text-gray-500 mb-2">Confirmation sent to</p>
-          <p class="font-bold text-lg mb-4" x-text="email"></p>
+          <p class="tw:text-sm tw:text-gray-500 tw:mb-2">Confirmation sent to</p>
+          <p class="tw:font-bold tw:text-lg tw:mb-4" x-text="email"></p>
 
-          <p class="text-sm text-gray-400 mb-5">
+          <p class="tw:text-sm tw:text-gray-400 tw:mb-5">
             Didn't receive it? Check your spam folder, or
-            <a href="#" class="text-brand-orange font-medium hover:underline"
+            <a href="#" class="tw:text-brand-orange tw:font-medium tw:hover:underline"
               >resend the email</a
             >.
           </p>
 
-          <div class="pt-6 border-t border-gray-50">
-            <p class="text-xs text-gray-400 mb-4">
+          <div class="tw:pt-6 tw:border-t tw:border-gray-50">
+            <p class="tw:text-xs tw:text-gray-400 tw:mb-4">
               Once you confirm, you'll be taken directly to the plan selection
               screen. You can log in once your subscription is active.
             </p>
             <button
               type="button"
               @click="step = 3"
-              class="text-brand-green font-bold text-sm hover:underline"
+              class="tw:text-brand-green tw:font-bold tw:text-sm tw:hover:underline"
             >
               Simulate Email Confirmation Link Click →
             </button>
@@ -257,10 +257,10 @@
       </section>
 
       <section x-show="step === 3" x-cloak x-transition>
-        <div class="flex items-start justify-between gap-4 mb-10">
+        <div class="tw:flex tw:items-start tw:justify-between tw:gap-4 tw:mb-10">
           <div>
-            <h1 class="text-3xl font-bold mb-2">Choose your plan</h1>
-            <p class="text-gray-500">
+            <h1 class="tw:text-3xl tw:font-bold tw:mb-2">Choose your plan</h1>
+            <p class="tw:text-gray-500">
               All plans include unlimited files, document generation, and email
               notifications.
             </p>
@@ -268,49 +268,49 @@
           <img
             src="https://cdn.prod.website-files.com/6581b9cfa36d3013e5fa7c73/6581b9cfa36d3013e5fa7cdf_ahaead%20legal%20logo.svg"
             alt="Ahead Legal Logo"
-            class="w-14 h-auto shrink-0"
+            class="tw:w-14 tw:h-auto tw:shrink-0"
           />
         </div>
 
-        <div class="flex justify-center mb-10">
-          <div class="bg-gray-100 p-1 rounded-xl flex items-center">
+        <div class="tw:flex tw:justify-center tw:mb-10">
+          <div class="tw:bg-gray-100 tw:p-1 tw:rounded-xl tw:flex tw:items-center">
             <button
               @click="billing = 'monthly'"
-              :class="billing === 'monthly' ? 'bg-white shadow-sm' : ''"
-              class="px-6 py-2 rounded-lg text-sm font-bold transition"
+              :class="billing === 'monthly' ? 'tw:bg-white tw:shadow-sm' : ''"
+              class="tw:px-6 tw:py-2 tw:rounded-lg tw:border tw:border-transparent tw:appearance-none tw:text-sm tw:font-bold tw:transition"
             >
               Monthly
             </button>
             <button
               @click="billing = 'yearly'"
-              :class="billing === 'yearly' ? 'bg-white shadow-sm' : ''"
-              class="px-6 py-2 rounded-lg text-sm font-bold transition flex items-center"
+              :class="billing === 'yearly' ? 'tw:bg-white tw:shadow-sm' : ''"
+              class="tw:px-6 tw:py-2 tw:rounded-lg tw:border tw:border-transparent tw:appearance-none tw:text-sm tw:font-bold tw:transition tw:flex tw:items-center"
             >
               Yearly
               <span
-                class="ml-2 bg-brand-green text-white text-[10px] px-1.5 py-0.5 rounded-full"
+                class="tw:ml-2 tw:bg-brand-green tw:text-white tw:text-[10px] tw:px-1.5 tw:py-0.5 tw:rounded-full"
                 >-20%</span
               >
             </button>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="tw:grid tw:grid-cols-1 tw:md:grid-cols-3 tw:gap-4 tw:mb-6">
           <div
             @click="plan = 'starter'"
-            :class="plan === 'starter' ? 'ring-2 ring-brand-green border-transparent' : 'border-gray-200'"
-            class="bg-white p-8 rounded-xl border cursor-pointer hover:shadow-md transition"
+            :class="plan === 'starter' ? 'tw:ring-2 tw:ring-brand-green tw:border-transparent' : 'tw:border-gray-200'"
+            class="tw:bg-white tw:p-8 tw:rounded-xl tw:border tw:cursor-pointer tw:hover:shadow-md tw:transition"
           >
-            <h3 class="font-bold text-lg mb-1">Starter</h3>
-            <div class="flex items-baseline mb-4">
-              <span class="text-2xl font-bold">$</span>
+            <h3 class="tw:font-bold tw:text-lg tw:mb-1">Starter</h3>
+            <div class="tw:flex tw:items-baseline tw:mb-4">
+              <span class="tw:text-2xl tw:font-bold">$</span>
               <span
-                class="text-4xl font-bold tracking-tight"
+                class="tw:text-4xl tw:font-bold tw:tracking-tight"
                 x-text="billing === 'monthly' ? '99' : '79'"
               ></span>
-              <span class="text-gray-400 text-sm ml-1"> USD/mo</span>
+              <span class="tw:text-gray-400 tw:text-sm tw:ml-1"> USD/mo</span>
             </div>
-            <ul class="text-sm text-gray-500 space-y-2">
+            <ul class="tw:text-sm tw:text-gray-500 tw:space-y-2">
               <li>Up to 5 users</li>
               <li>1 branch</li>
             </ul>
@@ -318,24 +318,24 @@
 
           <div
             @click="plan = 'professional'"
-            :class="plan === 'professional' ? 'ring-2 ring-brand-green border-transparent' : 'border-gray-200'"
-            class="bg-white p-8 rounded-xl border cursor-pointer relative hover:shadow-md transition"
+            :class="plan === 'professional' ? 'tw:ring-2 tw:ring-brand-green tw:border-transparent' : 'tw:border-gray-200'"
+            class="tw:bg-white tw:p-8 tw:rounded-xl tw:border tw:cursor-pointer tw:relative tw:hover:shadow-md tw:transition"
           >
             <span
-              class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-100 text-brand-green text-[9px] font-black uppercase tracking-[0.15em] px-6 py-1.5 rounded-full border border-brand-green/20 shadow-sm whitespace-nowrap z-20"
+              class="tw:absolute tw:-top-3 tw:left-1/2 tw:-translate-x-1/2 tw:bg-green-100 tw:text-brand-green tw:text-[9px] tw:font-black tw:uppercase tw:tracking-[0.15em] tw:px-6 tw:py-1.5 tw:rounded-full tw:border tw:border-brand-green/20 tw:shadow-sm tw:whitespace-nowrap tw:z-20"
             >
               Most popular
             </span>
-            <h3 class="font-bold text-lg mb-1">Professional</h3>
-            <div class="flex items-baseline mb-4">
-              <span class="text-2xl font-bold">$</span>
+            <h3 class="tw:font-bold tw:text-lg tw:mb-1">Professional</h3>
+            <div class="tw:flex tw:items-baseline tw:mb-4">
+              <span class="tw:text-2xl tw:font-bold">$</span>
               <span
-                class="text-4xl font-bold tracking-tight"
+                class="tw:text-4xl tw:font-bold tw:tracking-tight"
                 x-text="billing === 'monthly' ? '199' : '159'"
               ></span>
-              <span class="text-gray-400 text-sm ml-1"> USD/mo</span>
+              <span class="tw:text-gray-400 tw:text-sm tw:ml-1"> USD/mo</span>
             </div>
-            <ul class="text-sm text-gray-500 space-y-2">
+            <ul class="tw:text-sm tw:text-gray-500 tw:space-y-2">
               <li>Up to 20 users</li>
               <li>3 branches</li>
             </ul>
@@ -343,44 +343,44 @@
 
           <div
             @click="plan = 'enterprise'"
-            :class="plan === 'enterprise' ? 'ring-2 ring-brand-green border-transparent' : 'border-gray-200'"
-            class="bg-white p-8 rounded-xl border cursor-pointer hover:shadow-md transition"
+            :class="plan === 'enterprise' ? 'tw:ring-2 tw:ring-brand-green tw:border-transparent' : 'tw:border-gray-200'"
+            class="tw:bg-white tw:p-8 tw:rounded-xl tw:border tw:cursor-pointer tw:hover:shadow-md tw:transition"
           >
-            <h3 class="font-bold text-lg mb-1">Enterprise</h3>
-            <div class="flex items-baseline mb-4">
-              <span class="text-2xl font-bold">$</span>
+            <h3 class="tw:font-bold tw:text-lg tw:mb-1">Enterprise</h3>
+            <div class="tw:flex tw:items-baseline tw:mb-4">
+              <span class="tw:text-2xl tw:font-bold">$</span>
               <span
-                class="text-4xl font-bold tracking-tight"
+                class="tw:text-4xl tw:font-bold tw:tracking-tight"
                 x-text="billing === 'monthly' ? '399' : '319'"
               ></span>
-              <span class="text-gray-400 text-sm ml-1"> USD/mo</span>
+              <span class="tw:text-gray-400 tw:text-sm tw:ml-1"> USD/mo</span>
             </div>
-            <ul class="text-sm text-gray-500 space-y-2">
+            <ul class="tw:text-sm tw:text-gray-500 tw:space-y-2">
               <li>Unlimited users</li>
               <li>Unlimited branches</li>
             </ul>
           </div>
         </div>
 
-        <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm mb-2 flex items-center justify-between">
+        <div class="tw:bg-white tw:p-6 tw:rounded-3xl tw:border tw:border-gray-100 tw:shadow-sm tw:mb-2 tw:flex tw:items-center tw:justify-between">
             <div>
-                <h3 class="font-black text-lg">User licenses</h3>
-                <p class="text-xs text-gray-400 font-medium">Adjust your team size</p>
+                <h3 class="tw:font-black tw:text-lg">User licenses</h3>
+                <p class="tw:text-xs tw:text-gray-400 tw:font-medium">Adjust your team size</p>
             </div>
-            <div class="flex items-center space-x-6">
+            <div class="tw:flex tw:items-center tw:space-x-6">
                 <button
                     @click="if(licenses > 1) licenses--"
-                    class="w-10 h-10 flex items-center justify-center rounded-xl border border-gray-200 hover:bg-gray-50 font-black text-xl active:bg-gray-100 transition-colors cursor-pointer text-brand-navy"
+                    class="tw:w-10 tw:h-10 tw:flex tw:items-center tw:justify-center tw:rounded-xl tw:border tw:border-gray-200 tw:hover:bg-gray-50 tw:font-black tw:text-xl tw:active:bg-gray-100 tw:transition-colors tw:cursor-pointer tw:text-brand-navy"
                 >
                     -
                 </button>
 
-                <div class="text-2xl font-black w-10 text-center" x-text="licenses"></div>
+                <div class="tw:text-2xl tw:font-black tw:w-10 tw:text-center" x-text="licenses"></div>
 
                 <button
                     type="button"
                     @click="licenses++"
-                    class="w-10 h-10 flex items-center justify-center rounded-xl border border-gray-200 hover:bg-gray-50 font-black text-xl active:bg-gray-100 transition-colors cursor-pointer text-brand-navy"
+                    class="tw:w-10 tw:h-10 tw:flex tw:items-center tw:justify-center tw:rounded-xl tw:border tw:border-gray-200 tw:hover:bg-gray-50 tw:font-black tw:text-xl tw:active:bg-gray-100 tw:transition-colors tw:cursor-pointer tw:text-brand-navy"
                 >
                     +
                 </button>
@@ -390,29 +390,29 @@
         </div>
 
         <div
-          class="bg-brand-gray/50 p-6 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4"
+          class="tw:bg-brand-gray/50 tw:p-6 tw:rounded-xl tw:flex tw:flex-col tw:md:flex-row tw:items-center tw:justify-between tw:gap-4"
         >
-          <div class="text-sm font-medium">
-            <span class="capitalize" x-text="plan"></span> •
+          <div class="tw:text-sm tw:font-medium">
+            <span class="tw:capitalize" x-text="plan"></span> •
             <span x-text="licenses"></span> licenses •
-            <span class="capitalize" x-text="billing"></span>
+            <span class="tw:capitalize" x-text="billing"></span>
           </div>
-          <div class="flex items-center space-x-6">
-            <div class="text-right">
+          <div class="tw:flex tw:items-center tw:space-x-6">
+            <div class="tw:text-right">
               <span
-                class="text-3xl font-bold"
+                class="tw:text-3xl tw:font-bold"
                 x-text="`$${totalPrice}`"
               ></span>
-              <span class="text-gray-400 text-sm">USD/mo</span>
+              <span class="tw:text-gray-400 tw:text-sm">USD/mo</span>
             </div>
             <button
               @click="step = 4"
-              class="bg-brand-green hover:bg-brand-dark-green text-white px-8 py-3 rounded-lg font-bold transition flex items-center"
+              class="tw:bg-brand-green tw:hover:bg-brand-dark-green tw:text-white tw:px-8 tw:py-3 tw:rounded-lg tw:font-bold tw:transition tw:flex tw:items-center"
             >
               Continue to payment
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 ml-2"
+                class="tw:h-4 tw:w-4 tw:ml-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -431,25 +431,25 @@
 
       <section x-show="step === 4" x-cloak x-transition>
         <div
-          class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center"
+          class="tw:bg-white tw:p-8 tw:rounded-xl tw:shadow-sm tw:border tw:border-gray-100 tw:text-center"
         >
-          <div class="animate-pulse flex flex-col items-center">
+          <div class="tw:animate-pulse tw:flex tw:flex-col tw:items-center">
             <div
-              class="w-12 h-12 border-4 border-brand-green border-t-transparent rounded-full animate-spin mb-4"
+              class="tw:w-12 tw:h-12 tw:border-4 tw:border-brand-green tw:border-t-transparent tw:rounded-full tw:animate-spin tw:mb-4"
             ></div>
-            <h2 class="text-xl font-bold mb-2">Redirecting to Stripe</h2>
-            <p class="text-gray-500 mb-5">
+            <h2 class="tw:text-xl tw:font-bold tw:mb-2">Redirecting to Stripe</h2>
+            <p class="tw:text-gray-500 tw:mb-5">
               Securely processing your payment details...
             </p>
             <div
-              class="w-full max-w-xs h-4 bg-gray-100 rounded-full overflow-hidden"
+              class="tw:w-full tw:max-w-xs tw:h-4 tw:bg-gray-100 tw:rounded-full tw:overflow-hidden"
             >
-              <div class="h-full bg-brand-green w-2/3"></div>
+              <div class="tw:h-full tw:bg-brand-green tw:w-2/3"></div>
             </div>
           </div>
           <button
             @click="step = 5"
-            class="mt-8 text-sm font-medium text-gray-400 hover:text-brand-navy underline"
+            class="tw:mt-8 tw:text-sm tw:font-medium tw:text-gray-400 tw:hover:text-brand-navy tw:underline"
           >
             Simulate Successful Stripe Callback
           </button>
@@ -457,13 +457,13 @@
       </section>
 
       <section x-show="step === 5" x-cloak x-transition>
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <div class="tw:bg-white tw:p-6 tw:rounded-xl tw:shadow-sm tw:border tw:border-gray-100">
           <div
-            class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4"
+            class="tw:w-16 tw:h-16 tw:bg-green-100 tw:rounded-full tw:flex tw:items-center tw:justify-center tw:mb-4"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8 text-green-600"
+              class="tw:h-8 tw:w-8 tw:text-green-600"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -476,48 +476,48 @@
               />
             </svg>
           </div>
-          <h1 class="text-3xl font-bold mb-2">You're all set</h1>
-          <p class="text-gray-500 mb-5">
+          <h1 class="tw:text-3xl tw:font-bold tw:mb-2">You're all set</h1>
+          <p class="tw:text-gray-500 tw:mb-5">
             Your Ahead Legal account is now active. A receipt has been sent to
-            <span class="font-semibold text-brand-navy" x-text="email"></span>.
+            <span class="tw:font-semibold tw:text-brand-navy" x-text="email"></span>.
           </p>
 
-          <div class="space-y-4 mb-6">
+          <div class="tw:space-y-4 tw:mb-6">
             <h3
-              class="text-xs font-bold uppercase tracking-widest text-gray-400"
+              class="tw:text-xs tw:font-bold tw:uppercase tw:tracking-widest tw:text-gray-400"
             >
               Suggested next steps:
             </h3>
-            <ul class="space-y-4">
-              <li class="flex items-center group cursor-pointer">
+            <ul class="tw:space-y-4">
+              <li class="tw:flex tw:items-center tw:group tw:cursor-pointer">
                 <div
-                  class="w-8 h-8 rounded-lg bg-brand-gray flex items-center justify-center mr-4 group-hover:bg-brand-green group-hover:text-white transition"
+                  class="tw:w-8 tw:h-8 tw:rounded-lg tw:bg-brand-gray tw:flex tw:items-center tw:justify-center tw:mr-4 tw:group-hover:bg-brand-green tw:group-hover:text-white tw:transition"
                 >
                   1
                 </div>
-                <span class="font-medium">Set up your first branch</span>
+                <span class="tw:font-medium">Set up your first branch</span>
               </li>
-              <li class="flex items-center group cursor-pointer">
+              <li class="tw:flex tw:items-center tw:group tw:cursor-pointer">
                 <div
-                  class="w-8 h-8 rounded-lg bg-brand-gray flex items-center justify-center mr-4 group-hover:bg-brand-green group-hover:text-white transition"
+                  class="tw:w-8 tw:h-8 tw:rounded-lg tw:bg-brand-gray tw:flex tw:items-center tw:justify-center tw:mr-4 tw:group-hover:bg-brand-green tw:group-hover:text-white tw:transition"
                 >
                   2
                 </div>
-                <span class="font-medium">Invite your team members</span>
+                <span class="tw:font-medium">Invite your team members</span>
               </li>
-              <li class="flex items-center group cursor-pointer">
+              <li class="tw:flex tw:items-center tw:group tw:cursor-pointer">
                 <div
-                  class="w-8 h-8 rounded-lg bg-brand-gray flex items-center justify-center mr-4 group-hover:bg-brand-green group-hover:text-white transition"
+                  class="tw:w-8 tw:h-8 tw:rounded-lg tw:bg-brand-gray tw:flex tw:items-center tw:justify-center tw:mr-4 tw:group-hover:bg-brand-green tw:group-hover:text-white tw:transition"
                 >
                   3
                 </div>
-                <span class="font-medium">Create your first file</span>
+                <span class="tw:font-medium">Create your first file</span>
               </li>
             </ul>
           </div>
 
           <button
-            class="w-full bg-brand-green hover:bg-brand-dark-green text-white font-bold py-3 rounded-lg transition duration-200 flex justify-center items-center"
+            class="tw:w-full tw:bg-brand-green tw:hover:bg-brand-dark-green tw:text-white tw:font-bold tw:py-3 tw:rounded-lg tw:transition tw:duration-200 tw:flex tw:justify-center tw:items-center"
           >
             Set up my account →
           </button>
